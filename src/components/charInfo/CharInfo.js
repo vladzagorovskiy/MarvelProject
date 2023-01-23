@@ -41,6 +41,7 @@ class CharInfo extends Component {
             .getCharacter(charId)
             .then(this.onCharLoaded)
             .catch(this.onError);
+            
     }
 
     onCharLoaded = (char) => {
@@ -63,6 +64,8 @@ class CharInfo extends Component {
         })
     }
 
+
+    
     render () {
         const {char, loading, error} = this.state;
         
