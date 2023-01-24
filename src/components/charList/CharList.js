@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import Spinner from '../spinner/Spinner';
-import ErrorMessage from '../errorMessege/ErrorMessage';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 import MarvelService from '../../services/MarvelService';
 import './charList.scss';
 
@@ -18,7 +18,7 @@ class CharList extends Component {
     marvelService = new MarvelService();
 
     componentDidMount() {
-        this.onRequest(); 
+        this.onRequest();
     }
 
     onRequest = (offset) => {
@@ -35,7 +35,6 @@ class CharList extends Component {
     }
 
     onCharListLoaded = (newCharList) => {
-
         let ended = false;
         if (newCharList.length < 9) {
             ended = true;
@@ -57,7 +56,8 @@ class CharList extends Component {
         })
     }
 
- 
+    // Этот метод создан для оптимизации, 
+    // чтобы не помещать такую конструкцию в метод render
     renderItems(arr) {
         const items =  arr.map((item) => {
             let imgStyle = {'objectFit' : 'cover'};
@@ -101,7 +101,7 @@ class CharList extends Component {
                 <button 
                     className="button button__main button__long"
                     disabled={newItemLoading}
-                    style={{'display' : charEnded ? 'none' : 'block'}}
+                    style={{'display': charEnded ? 'none' : 'block'}}
                     onClick={() => this.onRequest(offset)}>
                     <div className="inner">load more</div>
                 </button>
