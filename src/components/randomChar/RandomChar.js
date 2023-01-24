@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Spinner from '../spinner/Spinner';
 import MarvelService from '../../services/MarvelService';
-import ErrorMessage from '../errorMessege/ErrorMessage';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
