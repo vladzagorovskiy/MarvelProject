@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import './index.css';
 import App from './components/app/App';
-import MarvelService from './services/MarvelService';
+// import MarvelService from './services/MarvelService';
 
 import './style/style.scss';
 
