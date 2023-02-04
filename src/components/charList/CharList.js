@@ -58,7 +58,7 @@ class CharList extends Component {
         })
     }
 
-
+//  fake comit
     renderItems(arr) {
         const items =  arr.map((item) => {
             let imgStyle = {'objectFit' : 'cover'};
