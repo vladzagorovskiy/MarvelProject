@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
-import MarvelService from '../../services/MarvelService';
+import useMarvelService from '../../services/MarvelService';
 import './charList.scss';
 
 const CharList = (props) => {
 
     const [charList, setCharList] = useState([]);
-    const [loading, setloading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [newItemLoading, setNewitemLoading] = useState(false);
     const [offset, setOffset] = useState(210);
     const [charEnded,setCharEnded] = useState(false);
 
     
-    const marvelService = new MarvelService();
+    const marvelService = useMarvelService();
 
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const CharList = (props) => {
         }
 
         setCharList(charList => [...charList, ...newCharList]);
-        setloading(loading => false);
+        setLoading(loading => false);
         setNewitemLoading(newItemLoading => false);
         setOffset(offset => offset + 9);
         setCharEnded(charEnded => ended)
@@ -49,7 +49,7 @@ const CharList = (props) => {
 
     const onError = () => {
         setError(true);
-        setloading(loading => false);
+        setLoading(loading => false);
     }
 
     const itemRefs = useRef([]);
