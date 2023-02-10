@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import {useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Spinner from '../spinner/Spinner';
@@ -9,16 +9,13 @@ import './charInfo.scss';
 
 import MarvelService from '../../services/MarvelService';
 
-class CharInfo extends Component {
+const CharInfo () => {
 
+    const [char, setChar] = useState(null);
+    const [loading, setLoading] = useState(flase);
+    const [error, setError] = useState(false);
 
-    state = {
-        char: null,
-        loading: false,
-        error: false
-    }
-    
-    marvelService = new MarvelService();
+    const marvelService = new MarvelService();
 
     componentDidMount() {
         this.updateChar();
