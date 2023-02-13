@@ -34,7 +34,10 @@ const CharList = (props) => {
         }
 
         // 1111
-        setCharList(charList => [...charList, ...newCharList]);
+        setCharList(charList =>  {
+            return charList.concat(newCharList)
+        });
+        setCharList(charList => [...new Map(charList.map(item => [item['id'], item])).values()]);
         setNewitemLoading(newItemLoading => false);
         setOffset(offset => offset + 9);
         setCharEnded(charEnded => ended)
